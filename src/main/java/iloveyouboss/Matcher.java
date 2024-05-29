@@ -1,26 +1,25 @@
 package iloveyouboss;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+
 import static iloveyouboss.Weight.REQUIRED;
 import static java.util.Arrays.asList;
 
 // START:class
 public record Matcher(Criteria criteria, Map<String, Answer> answers) {
     public Matcher(Criteria criteria, List<Answer> matcherAnswers) {
-        this(criteria, toMap(matcherAnswers));
+        this(criteria, asMap(matcherAnswers));
     }
 
     public Matcher(Criteria criteria, Answer... matcherAnswers) {
         this(criteria, asList(matcherAnswers));
     }
 
-    private static Map<String, Answer> toMap(List<Answer> answers) {
-        var answersMap = new HashMap<String, Answer>();
-        answers.stream().forEach(answer ->
-            answersMap.put(answer.questionText(), answer));
-        return answersMap;
+    private static Map<String, Answer> asMap(List<Answer> answers) {
+        return answers.stream().collect(
+           Collectors.toMap(Answer::questionText, answer -> answer));
     }
 
     public boolean matches() {
