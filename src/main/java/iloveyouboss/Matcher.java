@@ -1,8 +1,8 @@
 package iloveyouboss;
 
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import static iloveyouboss.Weight.REQUIRED;
 
 public class Matcher {
@@ -16,10 +16,8 @@ public class Matcher {
     }
 
     private Map<String, Answer> toMap(Answer[] answers) {
-        var answersMap = new HashMap<String, Answer>();
-        Arrays.stream(answers).forEach(answer ->
-            answersMap.put(answer.questionText(), answer));
-        return answersMap;
+        return Stream.of(answers).collect(
+            Collectors.toMap(Answer::questionText, answer -> answer));
     }
     // END:ctor
 
