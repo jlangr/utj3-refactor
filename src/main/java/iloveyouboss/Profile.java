@@ -31,8 +31,7 @@ public class Profile {
     // START_HIGHLIGHT
     private boolean isMatchFor(Criteria criteria) {
         // END_HIGHLIGHT
-        if (anyRequiredCriteriaNotMet(criteria))
-            return false;
+        if (anyRequiredCriteriaNotMet(criteria)) return false;
         return anyMatches(criteria);
     }
     // END:matches
