@@ -21,8 +21,7 @@ public class Profile {
     public boolean matches(Criteria criteria) {
         calculateScore(criteria);
 
-        if (anyRequiredCriteriaNotMet(criteria))
-            return false;
+        if (anyRequiredCriteriaNotMet(criteria)) return false;
 
         return anyMatches(criteria);
     }
