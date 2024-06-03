@@ -32,9 +32,8 @@ public class Matcher {
     // START:matches
     public boolean matches() {
         // START_HIGHLIGHT
-        if (anyRequiredCriteriaNotMet())
+        if (anyRequiredCriteriaNotMet()) return false;
             // END_HIGHLIGHT
-            return false;
         // START_HIGHLIGHT
         return anyMatches();
         // END_HIGHLIGHT
