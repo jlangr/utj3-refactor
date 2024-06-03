@@ -25,8 +25,7 @@ public class Profile {
         score = new Matcher(criteria, answers).score();
         // END_HIGHLIGHT
 
-        if (anyRequiredCriteriaNotMet(criteria))
-            return false;
+        if (anyRequiredCriteriaNotMet(criteria)) return false;
 
         return anyMatches(criteria);
     }
