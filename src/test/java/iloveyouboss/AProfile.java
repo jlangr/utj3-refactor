@@ -114,7 +114,7 @@ class AProfile {
 
             profile.matches(criteria);
 
-            assertEquals(Weight.IMPORTANT.value(), profile.score());
+            assertEquals(IMPORTANT.value(), profile.score());
         }
 
         @Test
